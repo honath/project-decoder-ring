@@ -4,34 +4,28 @@ const expect = require("chai").expect;
 
 describe("substitution", () => {
     it("should return false if the given alphabet isn't exactly 26 characters long", () => {
-        const expected = false;
-        const actual = substitution("test", "abc", true);
-
-        expect(actual).to.equal(expected);
+        const actual = substitution("thinkful", "short");
+        expect(actual).to.equal(false);
     });
 
     it("should return false if the given alphabet contains duplicate letters", () => {
-        const expected = false;
-        const actual = substitution("test", "abcabcabcabcabcabcabcabcyz", true);
-
-        expect(actual).to.equal(expected);
+        const actual = substitution("thinkful", "abcabcabcabcabcabcabcabcyz");
+        expect(actual).to.equal(false);
     });
 
     it("should correctly encode given phrase, based on alphabet given, maintaining spaces", () => {
-        const input = "You are an excellent spy";
-        const alphabet = "xoyqmcgrukswaflnthdjpzibev";
-        const expected = "elp xhm xf mbymwwmfj dne";
-        const actual = substitution(input, alphabet, true);
+        let actual = substitution("thinkful", "xoyqmcgrukswaflnthdjpzibev");
+        expect(actual).to.equal("jrufscpw");
 
-        expect(actual).to.equal(expected);
+        actual = substitution("You are an excellent spy", "xoyqmcgrukswaflnthdjpzibev");
+        expect(actual).to.equal("elp xhm xf mbymwwmfj dne");
     });
 
     it("should correctly decode given phrase, based on alphabet given, maintaining spaces", () => {
-        const input = "elp xhm xf mbymwwmfj dne";
-        const alphabet = "xoyqmcgrukswaflnthdjpzibev";
-        const expected = "you are an excellent spy";
-        const actual = substitution(input, alphabet, false);
+        let actual = substitution("jrufscpw", "xoyqmcgrukswaflnthdjpzibev", false);
+        expect(actual).to.equal("thinkful");
 
-        expect(actual).to.equal(expected);
+        actual = substitution("elp xhm xf mbymwwmfj dne", "xoyqmcgrukswaflnthdjpzibev", false);
+        expect(actual).to.equal("you are an excellent spy");
     });
 });

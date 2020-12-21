@@ -1,4 +1,4 @@
-function caesar(input, shift, encode = true) {
+function caesar(input, shift = 0, encode = true) {
   //test if shift is valid, exit function if not
   if (!shift || shift == 0 || shift < -25 || shift > 25) {
     return false;

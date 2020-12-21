@@ -4,36 +4,20 @@ const expect = require("chai").expect;
 
 describe("polybius", () => {
   it("should be a string", () => {
-    const input = "test";
-    const result = polybius(input, true);
-
+    const result = polybius("test");
     expect(result).to.be.a("string");
   });
 
-  it("should translate i and j to 42", () => {
-    const input = ["i", "j"];
-    const expected = "42";
+  it("should translate i/j & 42 correctly", () => {
+      let actual = polybius("ij");
+      expect(actual).to.equal("4242");
 
-    for (i = 0; i < input.length; i++) {
-      const actual = polybius(input[i], true);
-
-      expect(actual).to.equal(expected);
-    }
-  });
-
-  it("should translate 42 to (i/j)", () => {
-    const input = "42";
-    const expected = "(i/j)";
-
-    const actual = polybius(input, false);
-
-    expect(actual).to.equal(expected);
+      actual = polybius("42", false);
+      expect(actual).to.equal("(i/j)");
   });
 
   it("should return false early if given an uneven string to decode", () => {
-    const input = "112233 4";
-    const actual = polybius(input, false);
-
+    const actual = polybius("44324233521254134", false);
     expect(actual).to.equal(false);
   });
 
