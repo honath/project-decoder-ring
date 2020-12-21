@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 function polybius(input, encode = true) {
   //create table for polybius square
   const conversionTable = [
@@ -77,8 +76,5 @@ function polybius(input, encode = true) {
 
   return result.join("");
 }
-=======
-function polybius(input, encode = true) {}
->>>>>>> 0c4747e8493cfce328c5a7f13ea0538885290975
 
 module.exports = polybius;

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 function caesar(input, shift, encode = true) {
   //test if shift is valid, exit function if not
   if (!shift || shift == 0 || shift < -25 || shift > 25) {
@@ -47,8 +46,5 @@ function caesar(input, shift, encode = true) {
 
   return result.join("");
 }
-=======
-function caesar(input, shift, encode = true) {}
->>>>>>> 0c4747e8493cfce328c5a7f13ea0538885290975
 
 module.exports = caesar;
